@@ -3,7 +3,7 @@ import csv
 
 # set our Resource path and output file for printing result
 find_path = "Resources/budget_data.csv"
-output_file = "Analysis/Financial Analysis.csv"
+output_file = "Analysis/Financial Analysis.txt"
 
 # Open the CSV
 with open(find_path) as csv_file:

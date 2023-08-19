@@ -1,14 +1,15 @@
 import os
 import csv
 
-election_data = os.path.join("resources/election_data.csv")
+find_path = "Resources/election_data.csv"
+output_file = "Analysis/Election Results.txt"
 
 candidates = []
 num_votes = []
 percent_votes = []
 total_votes = 0
 
-with open(election_data, newline = "") as csvfile:
+with open(find_path) as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ",")
     csv_header = next(csvreader)
 
@@ -47,16 +48,16 @@ print(f"Winner: {winning_candidate}")
 print("--------------------------")
 
 # Exporting to .txt file
-output = open("Analysis/Election Results.txt", "w")
+output_file = open("Analysis/Election Results.txt", "w")
 line1 = "Election Results"
 line2 = "--------------------------"
 line3 = str(f"Total Votes: {str(total_votes)}")
 line4 = str("--------------------------")
-output.write('{}\n{}\n{}\n{}\n'.format(line1, line2, line3, line4))
+output_file.write('{}\n{}\n{}\n{}\n'.format(line1, line2, line3, line4))
 for i in range(len(candidates)):
     line = str(f"{candidates[i]}: {str(percent_votes[i])} ({str(num_votes[i])})")
-    output.write('{}\n'.format(line))
+    output_file.write('{}\n'.format(line))
 line5 = "--------------------------"
 line6 = str(f"Winner: {winning_candidate}")
 line7 = "--------------------------"
-output.write('{}\n{}\n{}\n'.format(line5, line6, line7))
+output_file.write('{}\n{}\n{}\n'.format(line5, line6, line7))
